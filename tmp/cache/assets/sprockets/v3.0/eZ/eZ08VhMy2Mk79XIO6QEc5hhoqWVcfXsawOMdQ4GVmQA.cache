@@ -1,0 +1,12 @@
+I"(function() {
+  App.hubs = App.cable.subscriptions.create("HubsChannel", {
+    connected: function() {},
+    disconnected: function() {},
+    received: function(data) {},
+    send_update: function() {
+      return this.perform('send_update');
+    }
+  });
+
+}).call(this);
+:ET

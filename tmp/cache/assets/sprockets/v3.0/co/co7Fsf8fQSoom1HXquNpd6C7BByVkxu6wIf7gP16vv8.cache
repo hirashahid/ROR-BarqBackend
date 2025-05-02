@@ -1,0 +1,15 @@
+I"k(function() {
+  App.notifications = App.cable.subscriptions.create("DashboardChannel", {
+    connected: function() {}
+  }, console.log("Connected to Dashboard Channel"), {
+    disconnected: function() {},
+    received: function(data) {
+      return console.log(data);
+    },
+    speak: function() {
+      return this.perform('speak');
+    }
+  });
+
+}).call(this);
+:ET

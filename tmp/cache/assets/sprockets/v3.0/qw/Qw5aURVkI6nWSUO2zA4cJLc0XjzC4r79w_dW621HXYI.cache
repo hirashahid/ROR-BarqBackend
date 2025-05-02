@@ -1,0 +1,19 @@
+I"(function() {
+  App.notifications = App.cable.subscriptions.create({
+    channel: "ShipmentTrackingChannel",
+    category_id: $('head').data('category-id'),
+    shipment_id: $('head').data('shipment-id')
+  }, {
+    connected: function() {
+      return console.log("Connected to ShipmentTrackingChannel");
+    },
+    disconnected: function() {},
+    received: function(result) {
+      console.log("Done ShipmentTrackingChannel");
+      console.log(result);
+      return $('#orders_map').html(result.html);
+    }
+  });
+
+}).call(this);
+:ET
